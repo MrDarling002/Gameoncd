@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+{{post.title}}
+{% endblock %}
+{% block content %}
+   <!--================Blog Area =================-->
+   <section class="blog_area single-post-area section-padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-8 posts-list">
+             <div class="single-post">
+                <div class="feature-img">
+                   <img class="img-fluid" src="{{post.image.url}}" alt="">
+                </div>
+                <div class="blog_details">
+                   <h2>
+                        {{post.title}}
+                   </h2>
+                   <ul class="blog-info-link mt-3 mb-4">
+                      <li><a href="#"><i class="fa fa-user"></i>{{post.category}}</a></li>
+                      <li><a href="#"><i class="fa fa-user"></i>{{post.view}}</a></li>
+                      <li><a href="#"><i class="fa fa-comments"></i> {{post.comment_set.count}} Comments</a></li>
+                   </ul>
+                   <p class="excert">
+                      {{post.text}}
+                   </p>
+                   <!-- <div class="quote-wrapper">
+                      <div class="quotes">
+                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                         should have to spend money on boot camp when you can get the MCSE study materials yourself at
+                         a fraction of the camp price. However, who has the willpower to actually sit through a
+                         self-imposed MCSE training.
+                      </div>
+                   </div> -->
+                   
+                </div>
+             </div>
+             <div class="navigation-top">
+                <div class="d-sm-flex justify-content-between text-center">
+                   <div class="col-sm-4 text-center my-2 my-sm-0">
+                      <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                   </div>
+                </div>
+             </div>
+             <div class="comments-area">
+                <h4>{{post.comment_set.count}} Comments</h4>
+                {% for comment in post.comment_set.all %}
+                <div class="comment-list">
+                   <div class="single-comment justify-content-between d-flex">
+                      <div class="user justify-content-between d-flex">
+                         <!-- <div class="thumb">
+                            <img src="assets/img/comment/comment_1.png" alt="">
+                         </div> -->
+                         <div class="desc">
+                            <p class="comment">
+                                 {{comment.text}}
+                            </p>
+                            <div class="d-flex justify-content-between">
+                               <div class="d-flex align-items-center">
+                                  <h5>
+                                     <a href="#">{{comment.author.username}}</a>
+                                  </h5>
+                                  <p class="date">{{comment.date|timesince}} назад</p>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                {% endfor %}
+             </div>
+             <div class="comment-form">
+                <h4>Оставте комментарий</h4>
+                {% if user.is_authenticated %}
+                <form  method="POST" class="form-contact comment_form" action="{% url 'comment' post.slug %}" id="commentForm">
+                   {% csrf_token %}
+                  <div class="row">
+                      <div class="col-12">
+                         <div class="form-group">
+                            <textarea class="form-control w-100" name="text" id="comment" cols="30" rows="9"
+                               placeholder="Write Comment"></textarea>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="form-group">
+                      <button type="submit" class="button button-contactForm btn_1 boxed-btn">Отправить</button>
+                   </div>
+                </form>
+                {% else %}
+                <p>Чтобы оставить комментарий <a style="color: black;" href="{% url 'login' %}">Войдите</a>
+                  или <a style='color:black;' href="{% url 'register' %}">Зарегистрируйтесь</a></p>
+             </div>
+             {% endif %}
+          </div>
+          <div class="col-lg-4">
+            
+          </div>
+       </div>
+    </div>
+ </section>
+ <!--================ Blog Area end =================-->
+{% endblock %}
