@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Bungee Inline';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/bungeeinline/v11/Gg8zN58UcgnlCweMrih332VuDGI.ttf) format('truetype');
+}

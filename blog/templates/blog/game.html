@@ -1,0 +1,169 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block content %}
+
+{% for post in game %}
+  <title>{{post.title}}</title>    
+  
+  <link rel="stylesheet" href="{% static 'css/assets/web/assets/mobirise-icons/mobirise-icons.css'%}">
+  <lnk rel="stylesheet" href="{% static 'css/assets/bootstrap/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/bootstrap/css/bootstrap-grid.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/bootstrap/css/bootstrap-reboot.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/web/assets/gdpr-plugin/gdpr-styles.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/tether/tether.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/dropdown/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/socicon/css/styles.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/theme/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/gallery/style.css'%}">
+  <link rel="preload" as="style" href="{% static 'css/assets/mobirise/css/mbr-additional.css'%}">
+  <link rel="stylesheet" href="{% static 'css/assets/mobirise/css/mbr-additional.css'%}" type="text/css">
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/css/sdb.css'%}">  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/css/footer.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/css/slayder.css'%}">
+  <link rel="stylesheet" href="{static 'css/swiper%408.4.2/swiper-bundle.min.css'%}">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="../../css2?family=Cinzel:wght@900&family=Permanent+Marker&family=Russo+One&display=swap" rel="stylesheet">
+  <link href='../../css-1?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../../ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="../../css2-1?family=Alfa+Slab+One&family=Fredoka+One&family=Luckiest+Guy&family=Russo+One&family=Syne+Tactile&display=swap" rel="stylesheet">
+  <link href="../../css2-2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="../../css2-3?family=Palette+Mosaic&display=swap" rel="stylesheet">
+  <link href="../../css2-4?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+  <link href="../../css2-5?family=Aldrich&display=swap" rel="stylesheet">
+  <link href="../../css2-6?family=Moo+Lah+Lah&display=swap" rel="stylesheet">
+  <link href="../../css2-7?family=Bungee+Inline&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    <section class="oleg header7 cid-rO3dp4ysBd mbr-parallax-background" id="header7-3p" style="z-index: 0; background-image: none; position: relative;">
+
+    
+
+    
+
+        <div class="container">
+            <div class="media-container-row">
+    
+                <div class="media-content align-right">
+                    <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-1"><br>{{post.title}}</h1>
+                    <div class="mbr-section-text mbr-white pb-3">
+                        
+                    </div>
+                    
+                </div>
+    
+                <div class="mbr-figure" style="width: 95%;"><iframe class="mbr-embedded-video" src="{{post.youtube}};amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen="" style="height: 405px;"></iframe></div>
+    
+            </div>
+        </div>
+    <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100; background-image: url(&quot;https://gamesoncd.com/assets/images/mbr-1440x1920.jpg&quot;); background-size: cover; "><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;position: fixed; top: 0px; left: 0px; width: 794.4px; height: 617.845px; overflow: hidden; pointer-events: none; margin-top: 59.0775px; transform: translate3d(0px, -17.0775px, 0px);"></div></div></section>
+
+<section class="mbr-section content4 cid-s9hqlmxzlh" id="content4-li">
+
+    
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center pb-3 mbr-fonts-style display-5"><div style="color:#000000">Minimum system requirements:
+</div></h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-4"><div>{{post.system}}</div></h3>
+                <div style="Color:#696969"><div align="Justify"><script async="" src="../../pagead/js/f.txt?client=ca-pub-8629547514238225" crossorigin="anonymous"></script>
+<!-- TMP -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8629547514238225" data-ad-slot="6256342071"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><br><h4 align="Center"><div style="Color:#000000">The plot of the game</div></h4><br>
+</div><div>
+</div><div style="Color:#696969"><div align="Justify">{{post.plot}}
+</div><div>
+<div>
+</div><br><h4 align="Center"><div style="Color:#000000">Visual effects</div></h4><br>
+</div><div>
+</div><div style="Color:#696969"><div align="Justify">{{post.effects}}
+</div><div>
+</div><br><h4 align="Center"><div style="Color:#000000">Sounds</div></h4><br>
+</div><div>
+</div><div style="Color:#696969"><div align="Justify">{{post.sound}}
+</div><div>
+</div><br>
+</div><div>
+</div><br><h4 align="Center"><div style="Color:#000000">Features</div></h4><br>
+</div><div>
+</div><div style="Color:#696969"><div align="Justify">{{post.features}}
+</div><br>
+  </div>
+
+
+</div></div></div></div></div></div></div></div></section>
+
+<section class="mbr-gallery mbr-slider-carousel cid-rO3dp7z9c2" id="gallery3-3r">
+
+    
+
+    <div>
+<div class="mbr-gallery-row"><div class="mbr-gallery-layout-default"><div><div><div class="mbr-gallery-item mbr-gallery-item--p4" data-video-url="false" data-tags="Анимированный"><div href="#lb-gallery3-3r" data-slide-to="0" data-toggle="modal"><img src="{{post.image1.url}}" alt="Far Cry 6: screenshot 1 " title=""></div></div><div class="mbr-gallery-item mbr-gallery-item--p4" data-video-url="false" data-tags="Анимированный"><div href="#lb-gallery3-3r" data-slide-to="1" data-toggle="modal"><img src="{{post.image2.url}}" alt="Far Cry 6: screenshot 2" title=""></div></div><div class="mbr-gallery-item mbr-gallery-item--p4" data-video-url="false" data-tags="Анимированный"><div href="#lb-gallery3-3r" data-slide-to="2" data-toggle="modal"><img src="{{post.image3.url}}" alt="Far Cry 6: screenshot 3" title=""></div></div></div></div><div class="clearfix"></div></div></div><!-- Lightbox --><div data-app-prevent-settings="" class="mbr-slider modal fade carousel slide" tabindex="-1" data-keyboard="true" data-interval="false" id="lb-gallery3-3r"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="carousel-inner"><div class="carousel-item active"><img src="{{post.image1.url}}" alt="Far Cry 6: screenshot 1 " title=""></div><div class="carousel-item"><img src="{{post.image2.url}}" alt="Far Cry 6: screenshot 2" title=""></div><div class="carousel-item"><img src="{{post.image3.url}}" alt="Far Cry 6: screenshot 3" title=""></div></div></div></div></div></div></div>
+    </div>
+
+
+      
+ {% endfor %}
+ <script type="text/javascript">(function(d, t, e, m){
+    
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+                
+        RW.init({
+            huid: "473054",
+            uid: "a0d6a5d94b9ef4f74974067f64c14e51",
+            source: "website",
+            options: {
+                "advanced": {
+                    "layout": {
+                        "lineHeight": "20px"
+                    }
+                },
+                "size": "large",
+                "style": "darkglass",
+                "isDummy": false
+            } 
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() + 
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;              
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
+  </body>
+</html>
+
+<script src="{% static 'css/swiper%408.4.2/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'css/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/jquery.mixitup.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/modernizr.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/jquery.bxslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/jquery.cslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/jquery.placeholder.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/jquery.inview.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/sdb.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/js/slayderr.js' %}"></script>
+
+<section id="top-1" hidden=""><a href="https://mobirise.site"></a><script src="{% static 'css/assets/web/assets/jquery/jquery.min.js' %}"></script><script src="{% static 'css/assets/popper/popper.min.js' %}"></script>  <script src="{% static 'css/assets/bootstrap/js/bootstrap.min.js' %}"></script>  <script src="{% static 'css/assets/tether/tether.min.js' %}"></script>  <script src="{% static 'css/assets/smoothscroll/smooth-scroll.js' %}"></script>  <script src="{% static 'css/assets/dropdown/js/nav-dropdown.js' %}"></script>  <script src="{% static 'css/assets/dropdown/js/navbar-dropdown.js' %}"></script>  <script src="{% static 'css/assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>  <script src="{% static 'css/assets/parallax/jarallax.min.js' %}"></script>  <script src="{% static 'css/assets/masonry/masonry.pkgd.min.js' %}"></script>  <script src="{% static 'css/assets/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>  <script src="{% static 'css/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>  <script src="{% static 'css/assets/vimeoplayer/jquery.mb.vimeo_player.js' %}"></script>  <script src="{% static '/assets/theme/js/script.js' %}"></script>  <script src="{% static 'css/assets/gallery/player.min.js' %}"></script>  <script src="{% static 'css/assets/gallery/script.js' %}"></script>  <script src="{% static 'css/assets/slidervideo/script.js' %}"></script>  
+</section> 
+
+{% endblock %}

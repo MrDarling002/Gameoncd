@@ -1,0 +1,35 @@
+﻿@font-face {
+  font-family: 'Alfa Slab One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/alfaslabone/v17/6NUQ8FmMKwSEKjnm5-4v-4Jh6dU.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/fredokaone/v13/k3kUo8kEI-tA1RRcTZGmTmHB.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Luckiest Guy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/luckiestguy/v18/_gP_1RrxsjcxVyin9l9n_j2RSg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Russo One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/russoone/v14/Z9XUDmZRWg6M1LvRYsH-yA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Syne Tactile';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/synetactile/v15/11hGGpna2UTQKjMCVzjAPMKh3w.ttf) format('truetype');
+}

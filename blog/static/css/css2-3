@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Palette Mosaic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/palettemosaic/v8/AMOIz4aBvWuBFe3TohdW6YZ9MFiy.ttf) format('truetype');
+}

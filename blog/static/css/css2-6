@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Moo Lah Lah';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/moolahlah/v3/dg4h_p_opKZOA0w1AYcm55wt.ttf) format('truetype');
+}

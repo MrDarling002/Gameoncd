@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
     <!-- CSS here -->
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css'%}">
@@ -22,6 +21,9 @@
     <link rel="stylesheet" href="{% static 'assets/css/slick.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/nice-select.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+
+    
+
 </head>
 <body> 
     <!-- Preloader Start -->
@@ -46,7 +48,7 @@
                         <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo/gamesoncd.png' %}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -63,21 +65,21 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo.png'%}" alt=""></a>
+                                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo/gamesoncd.png'%}" alt=""></a>
                                 </div>
                             <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">    
-                                            <li><a href="{% url 'index' %}">Главная</a></li>
-                                            <li><a href="{% url 'posts' %}">Все новости</a></li>
-                                            <li><a href="about.html">О нас</a></li>
-                                            <li><a href="contact.html">Контакты</a></li>
+                                            <li><a href="{% url 'index' %}">Home</a></li>
+                                            <li><a href="{% url 'posts' %}">All news</a></li>
+                                            <li><a href="{% url 'game_post' %}">Games review</a></li>
+
                                             {% if not user.is_authenticated %}
-                                            <li><a href="{% url 'login' %}">Войти</a></li>
-                                            <li><a href="{% url 'register' %}">Регистрация</a></li>
+                                            <li><a href="{% url 'login' %}">Login</a></li>
+                                            <li><a href="{% url 'register' %}">Registration</a></li>
                                             {% else %}
-                                            <li><a href="{% url 'logout' %}">Выйти</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
@@ -117,11 +119,11 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo2_footer.png' %}" alt=""></a>
+                                    <a href="index.html"><img src="{% static 'css/assets/img/logo/gamesoncd.png' %}" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales  Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales  Suscipit mauris pede for sectetuer.</p>
+                                        <p>The information for the site is taken from free access, solely for obtaining information, is not a call for any action, is not propaganda of terrorism and does not hurt other people's feelings. The site may contain profanity</p>
                                     </div>
                                 </div>
                                 <!-- social -->
@@ -136,32 +138,21 @@
                     <div class="col-xl-3 col-lg-3 col-md-4  col-sm-6">
                         <div class="single-footer-caption mt-60">
                             <div class="footer-tittle">
-                                <h4>Newsletter</h4>
-                                <p>Heaven fruitful doesn't over les idays appear creeping</p>
+                                <h4>contacts</h4>
+                                <p>Tel: +998934755601</p>
+                                <p>Email: sanchoabdullaev5@gmail.com</p>
+                                <p>Instagram: Krazyk_boy_228</p>
+
+                                
+
                                 <!-- Form -->
-                                <div class="footer-form" >
-                                    <div id="mc_embed_signup">
-                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                        method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                                            class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = ' Email Address '">
-                                            <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm"><img src="{% static 'assets/img/logo/form-iocn.png'%}" alt=""></button>
-                                            </div>
-                                            <div class="mt-10 info"></div>
-                                        </form>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
                         <div class="single-footer-caption mb-50 mt-60">
-                            <div class="footer-tittle">
-                                <h4>Instagram Feed</h4>
-                            </div>
+                            
                             <div class="instagram-gellay">
                                 <ul class="insta-feed">
                                     <li><a href="#"><img src="assets/img/post/instra1.jpg" alt=""></a></li>
@@ -186,7 +177,7 @@
                             <div class="footer-copy-right">
                                 <p>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="" target="_blank">IT-Force</a>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This site is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="" target="_blank">Sancho</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>
@@ -232,5 +223,8 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{% static 'assets/js/plugins.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+
+    
+
 </body>
 </html>

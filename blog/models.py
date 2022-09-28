@@ -1,12 +1,14 @@
+from email.mime import image
+from pyexpat import model
 from django.db import models
 from django.shortcuts import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Category(models.Model):
-    title = models.CharField('Загаловок', max_length=255)
-    slug = models.SlugField('Ссылка', unique=True)
-    image = models.ImageField('Картинка', null = True, blank = True, upload_to = 'category_img/')
+    title = models.CharField('Загаловок', max_length=255,db_index=True)
+    slug = models.SlugField('Ссылка', unique=True,db_index=True)
+    image = models.ImageField('Картинка', null = True, blank = True)
 
     class Meta:
         verbose_name = 'Категория'
@@ -16,14 +18,15 @@ class Category(models.Model):
         return self.title
 
 class Post(models.Model):
-    title = models.CharField('Загаловок', max_length=255)
-    image = models.ImageField('Картинка', null = True, blank = True, upload_to = 'post_img/')
+    title = models.CharField('Загловок', max_length=255)
+    image = models.ImageField('Картинка', null = True, blank = True)
     text = models.TextField('Содержание')
     view = models.IntegerField('Просмотры', default=0)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Категория')
+    category = models.ManyToManyField(Category,verbose_name='Категория')
     slug = models.SlugField('Ссылка', unique=True)
     date = models.DateTimeField('Дата публикации', default=timezone.now )
     pub = models.BooleanField('Публикация', default=False)
+    
     
     class Meta:
         verbose_name = 'Новость'
@@ -45,5 +48,25 @@ class Comment(models.Model):
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
-    def __str__(self):
-        return self.user.username + '|' + self.post.title
+class Game(models.Model):
+    title = models.CharField('Название игры', max_length=255)
+    youtube=models.CharField('Ссылка на трейлер', max_length=255)
+    system= models.TextField('Системные требования') 
+    plot=models.TextField('Сюжет')
+    effects= models.TextField('Визуальные эффекты')
+    sound= models.TextField('Звук')
+    features= models.TextField('Функции')
+    image1=models.ImageField('Картинка 1', null = True, blank = True)
+    image2=models.ImageField('Картинка 2', null = True, blank = True)
+    image3=models.ImageField('Картинка 3', null = True, blank = True)
+    slug = models.SlugField('Ссылка', unique=True,db_index=True)
+
+
+
+    class Meta:
+        verbose_name = 'Обзор игр'
+        verbose_name_plural = 'Обзоры игр'
+
+    def get_game(self):
+        return reverse('game_url', kwargs={'slug':self.slug})
+

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{category.title}}
+{% endblock %}
+{% block content %}
+<!--================Blog Area =================-->
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                {% for post in post %}
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{post.image.url}}" alt="">
+                            <a href="#" class="blog_item_date">
+                                <h3>{{post.date.day}}</h3>
+                                <p>{{post.date|date:'M'}}</p>
+                            </a>
+                        </div>
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{{post.get_link}}">
+                                <h2>{{post.title}}</h2>
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+                    <nav class="blog-pagination justify-content-center d-flex">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% for p in page_obj.paginator.page_range %}
+                            <li class="page-item {% if p == page_obj.number %} active {% endif %}">
+                                <a href="?page={{ p }}" class="page-link">{{p}}</a>
+                            </li>
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <form action="{% url 'search'%}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder='Search Keyword'
+                                    onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Search Keyword'" name="search">
+                                    <div class="input-group-append">
+                                        <button class="btns"><i class="ti-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"type="submit">Search</button>
+                        </form>
+                    </aside>
+                    
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Recent Post</h3>
+                        {% for post in most_popular %}
+                        <div class="media post_item">
+                            <img style='object-fit: cover; width: 40%; height: 90px'  src="{{post.image.url}}" alt="post">
+                            <div class="media-body">
+                                <a href="{{post.get_link}}">
+
+                                    <h3>{{post.title}}</h3>
+                                </a>
+                                <p>{{post.date|date:'d, F Y'}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
+{% endblock %}

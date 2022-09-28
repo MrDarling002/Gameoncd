@@ -3,12 +3,12 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(label="Никнейм", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
-    password1 = forms.CharField(label="Пароль", required = True,widget = forms.PasswordInput(attrs={'class' : 'form-control valid'}))
-    password2 = forms.CharField(label="Повторите пароль", required = True,widget = forms.PasswordInput(attrs={'class' : 'form-control valid'}))
+    username = forms.CharField(label="Nickname", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
+    password1 = forms.CharField(label="Password", required = True,widget = forms.PasswordInput(attrs={'class' : 'form-control valid'}))
+    password2 = forms.CharField(label="Repeat password", required = True,widget = forms.PasswordInput(attrs={'class' : 'form-control valid'}))
     email = forms.EmailField(label="Email", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
-    first_name = forms.CharField(label="Имя", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
-    last_name = forms.CharField(label="Фамилия", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
+    first_name = forms.CharField(label="Name", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
+    last_name = forms.CharField(label="Surname", required = True,widget = forms.TextInput(attrs={'class' : 'form-control valid'}))
 
     class Meta:
         model = User
