@@ -31,8 +31,9 @@ def posts(request):
 def search_function(request):
     query = request.GET.get('search')
     search_obj = Post.objects.filter(Q(title__icontains=query))
+    search_obj = Game.objects.filter(Q(title__icontains=query))
     most_popular = Post.objects.filter(pub = 1).order_by('-date')[:10]
-    context = {'query': query, 'search_obj':search_obj, 'most_popular':most_popular}
+    context = {'query': query, 'search_obj':search_obj, 'most_popular':most_popular,}
     return render(request, 'blog/search.html', context)
 
 def post_detail(request, slug):
@@ -63,7 +64,7 @@ def comment(request, slug):
     return redirect(reverse('post_detail_url', kwargs = {'slug': post.slug}))
 
 def game_post(request):
-    game = Game.objects.all()
+    game = Game.objects.filter(pub=1).order_by('-date')
     most_popular = Post.objects.filter(pub = 1).order_by('-date')
     context = {'game':game,'most_popular': most_popular}
     return render(request, 'blog/game_post.html', context)

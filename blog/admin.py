@@ -7,6 +7,6 @@ class SlugAdmin(admin.ModelAdmin):
 admin.site.register(Post, SlugAdmin)
 admin.site.register(Category, SlugAdmin)
 admin.site.register(Comment)
-admin.site.register(Game)
+admin.site.register(Game, SlugAdmin)
 
 

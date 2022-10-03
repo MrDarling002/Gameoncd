@@ -50,6 +50,7 @@ class Comment(models.Model):
 
 class Game(models.Model):
     title = models.CharField('Название игры', max_length=255)
+    image = models.ImageField('Главная Картинка', null = True, blank = True)
     youtube=models.CharField('Ссылка на трейлер', max_length=255)
     system= models.TextField('Системные требования') 
     plot=models.TextField('Сюжет')
@@ -60,7 +61,12 @@ class Game(models.Model):
     image2=models.ImageField('Картинка 2', null = True, blank = True)
     image3=models.ImageField('Картинка 3', null = True, blank = True)
     slug = models.SlugField('Ссылка', unique=True,db_index=True)
+    date = models.DateTimeField('Дата публикации', default=timezone.now )
+    pub = models.BooleanField('Публикация', default=True)
 
+
+    def __str__(self):
+        return self.title
 
 
     class Meta:
@@ -69,4 +75,3 @@ class Game(models.Model):
 
     def get_game(self):
         return reverse('game_url', kwargs={'slug':self.slug})
-
