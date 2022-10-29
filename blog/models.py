@@ -5,6 +5,7 @@ from django.shortcuts import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+
 class Category(models.Model):
     title = models.CharField('Загаловок', max_length=255,db_index=True)
     slug = models.SlugField('Ссылка', unique=True,db_index=True)
@@ -48,8 +49,46 @@ class Comment(models.Model):
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
+class Game_category(models.Model):
+    title = models.CharField('Категория игры', max_length=255,db_index=True)
+    image = models.ImageField('Картинка', null = True, blank = True)
+    slug = models.SlugField('Ссылка', unique=True,db_index=True)
+    
+
+
+    class Meta:
+        verbose_name = 'Категория игры'
+        verbose_name_plural = 'Категории игр'
+
+    def __str__(self):
+        return self.title
+
+class Game_text(models.Model):
+    title = models.CharField('Название платформы', max_length=255)
+    text=models.TextField('Текст платформы')
+    youtube= models.CharField('Ссылка на видео', max_length=255, db_index=True, blank=True )
+
+class Game_dev(models.Model):
+    title = models.CharField('Название платформы игры', max_length=255,db_index=True)
+    image = models.ImageField('Картинка', null = True, blank = True) 
+    category=models.ManyToManyField(Game_category,verbose_name='Категория игр входящие в платформу')
+    
+ 
+
+    slug = models.SlugField('Ссылка', unique=True,db_index=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Платформа игры'
+        verbose_name_plural = 'Платформы игр'
+
+
 class Game(models.Model):
     title = models.CharField('Название игры', max_length=255)
+    game_category=models.ManyToManyField(Game_category,verbose_name='Категория игры')
+    game_dev = models.ManyToManyField(Game_dev,verbose_name='Категория платформы игры')
     image = models.ImageField('Главная Картинка', null = True, blank = True)
     youtube=models.CharField('Ссылка на трейлер', max_length=255)
     system= models.TextField('Системные требования') 
@@ -68,10 +107,20 @@ class Game(models.Model):
     def __str__(self):
         return self.title
 
-
     class Meta:
         verbose_name = 'Обзор игр'
         verbose_name_plural = 'Обзоры игр'
 
     def get_game(self):
         return reverse('game_url', kwargs={'slug':self.slug})
+    
+    def get_category(self):
+        return reverse('game_category_url', kwargs={'slug':self.slug})
+
+
+
+
+
+
+
+

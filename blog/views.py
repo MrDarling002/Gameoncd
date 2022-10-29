@@ -1,7 +1,8 @@
+from datetime import date
 from typing import Text
 from django.db.models import Q
 from django.shortcuts import render, redirect, reverse
-from .models import Game, Post, Category
+from .models import Game, Game_category, Game_dev, Game_text, Post, Category
 from .forms import RegisterForm
 from django.core.paginator import Paginator
 
@@ -31,7 +32,6 @@ def posts(request):
 def search_function(request):
     query = request.GET.get('search')
     search_obj = Post.objects.filter(Q(title__icontains=query))
-    search_obj = Game.objects.filter(Q(title__icontains=query))
     most_popular = Post.objects.filter(pub = 1).order_by('-date')[:10]
     context = {'query': query, 'search_obj':search_obj, 'most_popular':most_popular,}
     return render(request, 'blog/search.html', context)
@@ -63,14 +63,32 @@ def comment(request, slug):
         return redirect(reverse('post_detail_url', kwargs = {'slug': post.slug}))
     return redirect(reverse('post_detail_url', kwargs = {'slug': post.slug}))
 
-def game_post(request):
-    game = Game.objects.filter(pub=1).order_by('-date')
+
+def game_dev(request):
+    games_dev = Game_dev.objects.all()
+    return render(request,'blog/game_dev.html',{'games_dev':games_dev,})
+
+def game_category(request,slug):
+    gcategory = Game_dev.objects.get(slug__exact=slug)
+    game_category=Game_category.objects.filter(game_dev=gcategory)
+    return render(request,'blog/game_category.html',{'game_category':game_category,'gcategory':gcategory})
+
+def game_post(request, slug):
+    game_category = Game_category.objects.get(slug__exact=slug)
+    game=Game.objects.filter(game_category=game_category)
     most_popular = Post.objects.filter(pub = 1).order_by('-date')
-    context = {'game':game,'most_popular': most_popular}
+    context = {'game':game,'most_popular': most_popular,'game_category':game_category,}
     return render(request, 'blog/game_post.html', context)
 
 def game(request, slug):
     game = Game.objects.filter(slug__exact = slug)
     return render(request, 'blog/game.html', {'game':game})
+
+def game_text(request):
+    game_text=Game_text.objects.all()
+    return render(request, 'blog/game_category.html', {'game_text':game_text})
+
+
+
 
 

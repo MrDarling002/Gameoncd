@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/nice-select.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
 
+
+
     
 
 </head>
@@ -73,8 +75,9 @@
                                         <ul id="navigation">    
                                             <li><a href="{% url 'index' %}">Home</a></li>
                                             <li><a href="{% url 'posts' %}">All news</a></li>
-                                            <li><a href="{% url 'game_post' %}">Games review</a></li>
-
+                                            <li>
+                                                <a href="{% url 'game_dev' %}">Game Review</a>   
+                                            </li>
                                             {% if not user.is_authenticated %}
                                             <li><a href="{% url 'login' %}">Login</a></li>
                                             <li><a href="{% url 'register' %}">Registration</a></li>

@@ -8042,5 +8042,11 @@ del {
 .switch-wrap {
   margin-bottom: 10px;
 }
+.sequel-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  font-family: "" , cursive;
+}
 
 /*# sourceMappingURL=main.css.map */
