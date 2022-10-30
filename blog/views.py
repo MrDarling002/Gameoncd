@@ -75,7 +75,7 @@ def game_category(request,slug):
 
 def game_post(request, slug):
     game_category = Game_category.objects.get(slug__exact=slug)
-    game=Game.objects.filter(game_category=game_category)
+    game=Game.objects.filter(game_category=game_category).order_by('-date')
     most_popular = Post.objects.filter(pub = 1).order_by('-date')
     context = {'game':game,'most_popular': most_popular,'game_category':game_category,}
     return render(request, 'blog/game_post.html', context)
